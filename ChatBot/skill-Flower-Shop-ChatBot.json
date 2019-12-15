@@ -1,0 +1,153 @@
+{
+  "name": "Flower Shop ChatBot",
+  "intents": [
+    {
+      "intent": "hours_info",
+      "examples": [
+        {
+          "text": "What are your hours of operation in LA"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "Hi"
+        },
+        {
+          "text": "Hey"
+        },
+        {
+          "text": "Good Day"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hi there"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "relationship",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Mom",
+          "synonyms": [
+            "mommy",
+            "mum",
+            "mother",
+            "momma",
+            "mama",
+            "moms"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-07-10"
+    }
+  },
+  "skill_id": "1a292eba-e1fc-4c34-a4a0-bbbcbe69b489",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_8_1572784856325"
+    },
+    {
+      "type": "standard",
+      "title": "greetings",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello"
+              },
+              {
+                "text": "Hey There!How can i help you?"
+              },
+              {
+                "text": "Wassup ! How can i help ?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#greetings",
+      "dialog_node": "node_8_1572784856325",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "1a292eba-e1fc-4c34-a4a0-bbbcbe69b489",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
